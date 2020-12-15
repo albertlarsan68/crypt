@@ -1,0 +1,9 @@
+{
+    "name": "al68/transcoder",
+    "description": "A simple transcoder application",
+    "autoload": {
+        "psr-4": {
+            "Al68\\transcoder\\":"src/"
+        }
+    }
+}
