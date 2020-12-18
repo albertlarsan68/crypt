@@ -44,12 +44,8 @@ class transcoder
         $character = "";
         for ($i = 0; $i < strlen($toEncode); $i++) {
             $character = $toEncode[$i];
-            $ok = FALSE;
-            foreach ($this->_encoding as $key => $value) {
-                if ($key == $character && !$ok) {
-                    $character = $value;
-                    $ok = TRUE;
-                }
+            if (isset($this->_encoding[$character])) {
+                $character = $this->_encoding[$character];
             }
             $encoded = $encoded . $character;
         }
@@ -62,12 +58,8 @@ class transcoder
         $character = "";
         for ($i = 0; $i < strlen($toDecode); $i++) {
             $character = $toDecode[$i];
-            $ok = FALSE;
-            foreach ($this->_decode_array as $key => $value) {
-                if ($key == $character && !$ok) {
-                    $character = $value;
-                    $ok = TRUE;
-                }
+            if (isset($this->_encoding[$character])) {
+                $character = $this->_encoding[$character];
             }
             $decoded = $decoded . $character;
         }
