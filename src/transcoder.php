@@ -19,8 +19,8 @@ class transcoder
     public function __construct()
     {
         $this->set_encoding_string(
-            'abcdefhijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
-            'bcdefgijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZa'
+            'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            'bcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZa'
         );
     }
     public function set_encoding_string(string $origin, string $end)
@@ -58,8 +58,8 @@ class transcoder
         $character = "";
         for ($i = 0; $i < strlen($toDecode); $i++) {
             $character = $toDecode[$i];
-            if (isset($this->_encoding[$character])) {
-                $character = $this->_encoding[$character];
+            if (isset($this->_decode_array[$character])) {
+                $character = $this->_decode_array[$character];
             }
             $decoded = $decoded . $character;
         }
